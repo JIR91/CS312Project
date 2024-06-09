@@ -1,0 +1,12 @@
+---
+- hosts: minecraft
+  become: yes
+  tasks:
+    - name: Upload Minecraft setup script
+      copy:
+        src: ./setup_minecraft.sh
+        dest: /home/ubuntu/setup_minecraft.sh
+        mode: '0755'
+
+    - name: Run Minecraft setup script
+      command: sh /home/ubuntu/setup_minecraft.sh
